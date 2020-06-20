@@ -1,0 +1,29 @@
+(html)
+    <a [routerLink]="['/products']">Product List</a>
+
+    We have bind to url to the routerLink. When the user
+    clicks on the <a> tag, it will nagivate to the /products
+    page and the url changes to include the change segment
+    --> localhost:4200/products
+
+(routes.ts)
+    { path: 'products', component: ProductListComponent }
+
+    The router looks into the route configuration for the 
+    definition of the path that matches the url segment including
+    the component it wants to activate
+
+    -------------------------------------------------------
+
+    (product-list.component.ts)
+        import { Component } from '@angular/core';
+
+        @Component({
+            templateUrl: './product-list.component.html'
+        })
+        export class ProductListComponent{}
+    
+    --------------------------------------------------------
+
+    The router will load the (product-list.component.html)
+    through a built-in directive <router-outlet>

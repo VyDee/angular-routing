@@ -1,0 +1,17 @@
+Url is changed  <----------------------------
+    |                                       |
+    V                                       |
+MatchPath <--> Process Redirect             |
+    |                                       |
+    V                                       |   
+Process Guards                              |
+    |                                       |
+    V                                       |
+Resolve Data                                |
+    |                                       |
+    V                                       |
+Activate Components                         |
+    |                                       |
+    V                                       |
+Display Templates ---------------------------
+

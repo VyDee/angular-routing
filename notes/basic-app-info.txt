@@ -1,0 +1,32 @@
+App Routing Map
+    App
+        > Welcome Page
+        > Message (secondary route)
+        > Log In
+        > Product List
+            > Product Detail
+            (Product List and Detail can also navigate to
+            Product Edit)
+        > Product Edit
+            > Edit Info
+            > Edit Tags
+        > Page Not Found
+
+Angular Modules
+    App Module
+        App Component
+        Welcome Component
+        Page Not Found Component
+    Product Module
+        Product List Component
+        Product Detail Component
+        Product Edit Component
+    User Module
+        Login Component
+    Message Module
+        Message Component
+    Shared Module
+    Browser Module
+    Router Module
+    HttpClient Module
+
