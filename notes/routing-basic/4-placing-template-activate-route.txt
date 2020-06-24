@@ -1,0 +1,11 @@
+Placing the Templates and activating routes
+
+(app.component.html)
+    <ul>
+        <li><a [routerLink]="['/welcome']">Home</a></li>
+    </ul>
+    <router-outlet></router-outlet>
+
+    -- <router-outlet> is the place where the routed component
+    will display
+    -- using "routerLink" and hooking it up to an anchor tag

@@ -1,0 +1,21 @@
+Defining the Base Path
+    www.mySite.com/APM
+
+    >> Used by the router
+        Building the Url for navigation
+    >> Used by the browser
+        Building the Url for downloading and linking
+
+For development: 
+        localhost:4200
+    A base path is set in the (index.html) using base element
+        <base href="/">
+
+For deployment: 
+        https://www.mySite.com/APM/
+    <base href="/APM/">
+
+As we deploy an application, we need to reset the base path 
+like the note above 
+    We can have an easy way to do that by using
+        ng build --base-href /APM/

@@ -1,0 +1,38 @@
+RouterModule
+    provide service to manage url and navigation
+    configuration to config our routes
+    Directives to activate and display routes
+        RouterLink
+            tie to a clickable HTML element to a path
+        RouterLinkActive
+            associate a style with the active router link
+        RouterOutlet
+            where to display the template
+
+Importing the Angular Router
+    1/ import the RouterModule into "imports" in (app.module.ts)
+
+RouterModule.forRoot() vs RouterModule.forChild()
+    >> RouterModule.forRoot()
+        -- Declares the router directives
+        -- Manages our route configuration
+        -- Registers the router service
+        -- Used once for the application
+    
+    >> RouterModule.forChile()
+        -- Declares the router directives
+        -- Manages our route configuration
+        -- Does NOT register the router service
+        -- Used in feature modules
+
+Notes:
+    >> BrowserModule: used to pull in basic directives such
+    as NgIf and NgFor
+
+    >> HttpClientModule to access the Http client services and
+    get and save data
+
+    >> InMemoryWebApiModule is a separate service provided as
+    part of the Angular documentation. We use it to simulate 
+    call to a back end Web service to get and save product data 
+    without the need to set up a back end Web server

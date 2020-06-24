@@ -1,0 +1,18 @@
+Browser Url Styles
+    >> HTML 5 Style(../welcome)
+        Leverages HTML 5 history pushState
+        Default
+        More natural Url
+        Requires Url rewriting
+
+    >> Has-based (../#/welcome)
+        Leverages Url fragments
+        Must be set with { useHash: true }
+        Does not require Url rewriting
+        --> To use this, we need to pass it next to the 
+        RouterModule in (app.component.ts)
+        
+            >> (app.component.ts)
+            imports: [
+                RouterModule.forRoot([...], {useHash: true})
+            ]

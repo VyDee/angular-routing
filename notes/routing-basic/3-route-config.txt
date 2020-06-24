@@ -1,0 +1,33 @@
+Route configuration
+    -- define a set of compoenents and the route segment
+    required tp activate the component and displaying the 
+    component template
+
+    -- Routing is basically transitioning from one route 
+    path to another.
+
+    -- Route configurations is an array of route objects.
+    Each route object includes a path and other properties.
+
+    --The "path" property identifies the URL segment or 
+    segments for the route. Anytime the address bar URL
+    changes, the router searches the list looking for a 
+    match between the path property and the current URL
+    segments. We can also see the component associated with
+    this route.
+
+    -- important notes:
+        --The order of the route matters
+        --more specific path should be before an abstract path
+        
+    Example:
+    [
+        //path: welcome using Welcome Component
+        { path: 'welcome' , component: WelcomeComponent }, 
+
+        //path: empty or blank, redirect back to welcome
+        { path: ' ', redirectTo: 'welcome', pathMatch: 'full' },
+
+        //if path is undefined, direct to 404PageNotFound
+        { path: '**', component: PageNotFoundComponent }
+    ]
