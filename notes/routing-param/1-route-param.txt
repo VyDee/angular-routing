@@ -1,0 +1,29 @@
+Reading route parameters
+    (component class)
+        -- create a dependency in the constructor
+        constructor(private route: ActivatedRoute) { }
+    (snapshot)
+        -- using snapshot to get the id
+        const id = this.route.snapshot.paramMap.get('id')
+    (observable)
+        -- we can also listen to observable for changes
+        this.route.paramMap.subscribe(
+            params => {
+                const id = params.get('id');
+            }
+        )
+
+Instruction on how to hook up route parameters
+    (component class)
+        import { ActivatedRoute } from '@angular/router';
+        ...
+            constructor(private route: ActivatedRoute) {
+                console.log(this.route.snapshot.paramMap.get('id'));
+            }
+
+    (angular module - product.module.ts)
+        { path: 'products/:id', component: ProductDetailComponent }
+    
+    (template - product-list.component.html)
+        <a [routerLink] = "['/products', product.id]">{{product.productName}}</a>
+
