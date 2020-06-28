@@ -1,0 +1,31 @@
+Routing to Features Checklist: 
+
+>> Configuration
+    Import RouterModule
+        - Be sure to use RouterModule.forChild()
+    
+    Configure the routes
+    Order matters!
+    --> Example can be found at (app.module.ts) and 
+    (app-routing.module.ts)
+
+>> Naming routes    
+    use a common root path name for related feature routes
+        - products
+        - products/:id
+        - products/:id/edit
+
+>> Activate with Code
+    - import the Router
+    - add a dependency on the Router service
+        As a constructor parameter
+    - use the router service navigate method
+    - pass in a link parameters array
+        * first element if the root Url segment
+        * all other elements are route parameters or additional
+        Url segments
+        >> this.router.navigate(['/welcome]);
+
+>> Routing module
+    -- separate out routes to their own routing module
+    -- keep route path order in mind

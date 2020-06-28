@@ -1,0 +1,9 @@
+Activating a Route with Code
+
+(app.component.ts)
+    -- import router:Router into constructor
+    -- for example, write a log out function
+        logOut(): void {
+            // Do some processing
+            this.route.navigate(['/welcome']);
+        }

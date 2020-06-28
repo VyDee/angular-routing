@@ -1,0 +1,10 @@
+Importing the Angular Router
+    for ex:
+    (product.module.ts)
+        -- import RouterModule.forChild() into the feature module 
+        and add path to products linked with ProductListComponent
+        { path: 'products', component: ProductListComponent }
+
+        -- we use forChild because we don't want to register 
+        service again since we already do that in (app.module)
+
