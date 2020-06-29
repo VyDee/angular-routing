@@ -1,0 +1,16 @@
+Reading optional route parameters
+
+(component class)
+    import { ActivatedRoute } from '@angular/router';
+    ...
+        constructor(private route: ActivatedRoute) {
+            console.log(this.route.snapshot.paramMap.get('name'));
+            console/log(this.route.snapshot.paramMap.get('code'));
+        }
+
+(template)
+    [routerLink]="['/products', { name: productName, code: productCode,
+    startDate: availabilityStart, endDate: availabilityEnd}]"
+
+(product.module.ts)
+    { path: 'products', component: ProductListComponent },
