@@ -1,0 +1,16 @@
+(component class)
+    import { ActivatedRoute } from '@angular/router';
+    ...
+        constructor (private route: ActivatedRoute) {
+            this.route.paramMap.subscribe(
+                params => {
+                    console.log(params.get('id'));
+                }
+            )
+        }
+
+(angular module)
+    { path: 'products/:id/edit', component: ProductEditComponent }
+
+(template)
+    <a [routerLink]="['/products', products.id,'edit']">Edit</a>

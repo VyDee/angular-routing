@@ -1,0 +1,13 @@
+Snapshot
+    -- To read the parameter only once
+    -- simple code
+    -- const id = this.route.snapshot.paramMap.get('id')
+
+Observable
+    -- To watch for parameter changes
+    -- More complex code
+    -- this.route.paramMap.subscribe (
+        params => {
+            const id = params.get('id');
+        }
+    )
