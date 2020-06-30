@@ -1,0 +1,41 @@
+Define query parameters
+    (template)
+        <a [routerLink] = "['/products', product.id]"
+            [queryParams]= "{filterBy: 'er', showImage: true}">
+            {{product.productName}}
+        </a>
+    
+    (component class)
+        this.router.navigate(['/products'],
+        {
+            queryParams: {filterBy: 'er', showImage: true }
+        });
+    
+    (angular module)
+        { path: 'products', component: ProductListComponent }
+
+Retaining Query parameters (keep the param even we go back)
+    (template) -- (product-detail.component.ts)
+        <a [routerLink]="['/products']"
+        queryParamsHandling = "preserve"> back </a>
+    
+    (component class)
+        this.router.navigate(['/products'], 
+        {
+            queryParamsHandling: 'preserve"
+        })
+
+Reading Query parameters
+    (component class)
+    import { ActivatedRoute } from '@angular/router';
+    ...
+        constructor(private route: ActivatedRoute) {
+            console.log(this.route.snapshot.queryParamMap.get('filterBy'));
+            console.log(this.route.snapshot.queryParamMap.get('showImage'));
+        }
+    
+    (template)
+    <a [routerLink]="['/products', product.id]"
+        [queryParams]="{filterBy: listFilter, showImage: showImage }" >
+        {{product.productName}}
+    </a>
