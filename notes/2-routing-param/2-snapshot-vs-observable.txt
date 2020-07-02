@@ -1,3 +1,5 @@
+FYI:
+    https://medium.com/@tiboprea/accessing-url-parameters-in-angular-snapshot-vs-subscription-efc4e70f9053#:~:text=If%20you%20intend%20not%20to,from%20within%20the%20same%20component.
 Snapshot
     -- To read the parameter only once
     -- simple code

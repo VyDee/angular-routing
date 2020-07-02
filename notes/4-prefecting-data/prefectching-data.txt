@@ -1,0 +1,5 @@
+Benefits of prefetching data
+    -- prevents display of a blank partial page while
+    waiting for data to be retrieved
+    -- reuse more code
+    -- improves flow when an error occurs

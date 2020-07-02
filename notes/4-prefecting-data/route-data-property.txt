@@ -1,0 +1,37 @@
+Route's Data Property
+
+A route definition has a data property, used to provide
+arbitrary data to a route. We pass it an object specifying
+a set of key and value pairs, where the key is a logical 
+name for the data and the value is the data itself.
+
+The data defined in the data property can not change 
+throughout the lifetime of the lifetime of the application,
+so we use it for a static data such as the pageTitle.
+
+To read the data property, we use the same activated route
+service in the module. We use its snapshot to access the 
+data array, using the key to retrieve a specific data
+element. We won't use observable because the data property
+is static and won't change so there is no need to watch for
+changes
+
+(angular module)
+    @NgModule({
+        imports: [
+            RouterModule.forChild([
+            {
+                path: 'products',
+                component: ProductListComponent,
+                data: { pageTitle: 'Product List'}
+            },
+            {
+                path: 'products/:id',
+                component: ProductDetailComponent
+            }
+            ])
+        ]
+    })...
+
+(component class)
+    this.pageTitle = this.route.snapshot.data['pageTitle'];

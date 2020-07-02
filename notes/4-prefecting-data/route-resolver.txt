@@ -1,0 +1,22 @@
+Using a route resolver
+    1/ Build a route resolver service
+        -- A route resolver is a custom Angular service
+        that retrieves the data needed for our component
+    2/ Add resolve to the route configuration
+        -- assign it to the route resolver. The router
+        executes the resolver services and retrieves the
+        data before activating the associated component
+    3/ Read the data from ActivatedRoute
+        -- since we have the needed data, we modified the 
+        associated component to read its data from the
+        activated route service, similar to how we retrieve
+        route parameters. We read that data using a snapshot
+        or an observable.
+        -- We use the snapshot to read the data from the
+        activated route service if we don't expect resolver
+        to get different data while staying on the current 
+        page
+        -- we use observable to read the data from the
+        activated route service if it is possible for the
+        resolver to get different data while staying on 
+        the current page
