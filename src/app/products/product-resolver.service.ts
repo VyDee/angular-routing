@@ -29,8 +29,7 @@ export class ProductResolver implements Resolve<ProductResolved> {
                 const message = `Retrieval error: $(error)`;
                 console.error(message);
                 return of ({product: null, error: message});
-                })
-            })
-        );
+            }),
+        )
     }
 }

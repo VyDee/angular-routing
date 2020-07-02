@@ -1,11 +1,16 @@
 Using a route resolver
-    1/ Build a route resolver service
+    1/ Build a route resolver service (product-resolver.service.ts)
         -- A route resolver is a custom Angular service
         that retrieves the data needed for our component
-    2/ Add resolve to the route configuration
+    2/ Add resolve to the route configuration (product.module.ts)
         -- assign it to the route resolver. The router
         executes the resolver services and retrieves the
         data before activating the associated component
+        -- We use the resolver to prefetch the data for our component
+
+        { path: 'product/:id', component: ProductDetailComponent,
+            resolve: { product: ProductResolver }},
+
     3/ Read the data from ActivatedRoute
         -- since we have the needed data, we modified the 
         associated component to read its data from the
@@ -20,3 +25,4 @@ Using a route resolver
         activated route service if it is possible for the
         resolver to get different data while staying on 
         the current page
+    
