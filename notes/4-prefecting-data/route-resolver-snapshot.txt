@@ -1,0 +1,20 @@
+Reading Resolver Data: snapshot
+
+(component class)
+    import { ActivatedRoute } from '@angular/router';
+    ...
+        product: Product;
+        constructor(private route: ActivatedRoute) {
+
+            // the route take a snapshot of the product instance
+            // in the path in angular module
+            
+            this.product = this.route.snapshot.data['product'];
+        }
+
+(angular module)
+    { path: 'products/:id', component: ProductDetailComponent,
+        resolver: { product: ProductResolver} }
+
+(resolver service)
+    export class ProductResolver implements Resolver<Product> { }
