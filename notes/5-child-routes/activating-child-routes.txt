@@ -1,0 +1,12 @@
+(template)
+    // Absolute path
+        <a [routerLink] = "['/products', product.id, 'edit', 'info']">Info</a>
+    // Relative path    
+        <a [routerLink] = "['info']">Info</a>
+
+(component class)
+    // Absolute path
+        this.route.navigate(['/products', this.product.id, 'edit', 'info']);
+    
+    // Relative path
+        this.route.navigate(['info'], { relativeTo: this.route});

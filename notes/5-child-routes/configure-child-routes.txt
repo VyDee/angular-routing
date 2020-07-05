@@ -1,0 +1,34 @@
+Adding a child route
+
+(product module)
+    {
+        path: 'products/:id/edit',
+        component: ProductEditComponent,
+        resolve: { product: ProductResolver },
+        children: [
+            {
+                path: '', redirectTo: 'info', pathMatch: 'full'
+            },
+            {
+                path: 'info', component: ProductEditInfoComponent
+            },
+            {
+                path:'tags', component: ProductEditTagsComponent
+            }
+        ]
+    }
+
+(product-edit component)
+    <div class="card-body">
+        <div class="wizard">
+            <a [routerLink]="['info']">
+                Basic information
+            </a>
+            <a [routerLink]="['tags']">
+                Search tags
+            </a>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+
