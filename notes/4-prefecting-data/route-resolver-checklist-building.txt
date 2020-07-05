@@ -1,0 +1,25 @@
+Route Resolver Checklist: Building
+
+-- Create an Angular service
+
+-- Implement the Resolver<> interface (ProductResolver)
+    export class ProductResolver implements Resolve<Product> { }
+
+-- Add a resolved method 
+    resolve(route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<Product> { }
+
+-- configure using resolve
+-- give each type of data a logical name
+    { path: 'products/:id',
+    component: ProductDetailComponent,
+    resolve: { product: ProductResolver}
+    }
+
+-- Read the data from the route
+    - Snapshot 
+        this.product = this.route.snapshot.data['product];
+    - Data Observable
+        this.route.data.subscribe(
+            data => this.product = data['product'];
+        );

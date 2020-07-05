@@ -1,0 +1,18 @@
+Reading Resolver Data: Observables
+
+(Component Class)
+import { ActivatedRoute } from '@angular/router';
+...
+    product: Product;
+    constructor(private route: ActivatedRoute) {
+        this.route.data.subscribe(
+            data => this.product = data['product'];
+        );
+    }
+
+(angular module)
+    { path: 'products/:id/edit', component: ProductEditComponent,
+        resolve: {product: ProductResolver} }
+
+(resolver service)
+    export class ProductResolver implements Resolve<Product> { }
