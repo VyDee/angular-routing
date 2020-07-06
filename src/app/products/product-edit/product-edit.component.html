@@ -111,6 +111,7 @@
           style="width: 80px;"
           type="button"
           tittle="Save your entered data"
+          [disabled]="!isValid()"
           (click)="saveProduct()">
           Save
         </button>
