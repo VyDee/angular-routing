@@ -1,0 +1,21 @@
+Style the selected route
+
+(product-edit.component.html)
+    <div class="wizard">
+        <a [routerLink]="['info']"
+            routerLinkActive="active">
+            Basic Information
+            <span [ngClass]="{'fa fa-exclamation': !isValid('info')}"></span>
+        </a>
+    </div>
+
+(product-edit.component.css)
+    .wizard .active {
+        background: #007ACC;
+        color: #fff;
+    }
+
+    /* Adds the right arrow after the tab */
+    .wizard .active:after {
+        border-left-color: #007ACC;
+    }

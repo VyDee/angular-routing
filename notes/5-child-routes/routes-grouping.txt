@@ -1,0 +1,44 @@
+Component-less Routes
+
+-- Add a default path that routes to the desired Component
+-- remove the component from the parent route
+-- the child routes are displayed in a higher-level outlet
+
+(product.module.ts)
+    RouterModule.forChild([
+        { 
+            path:'products', 
+            children: [
+            {
+                path: '', 
+                component: ProductListComponent
+            },
+            { 
+                path: ':id', 
+                component: ProductDetailComponent, 
+                resolve: { resolvedData: ProductResolver} // when the data launch, this path will tell
+                                                        // the browser to prefetch the data before 
+                                                        // launching the ProductDetailComponent
+            },
+            {
+                path: ':id/edit', 
+                component: ProductEditComponent,
+                resolve: { resolvedData: ProductResolver }, 
+                children: [
+                {
+                    path:'',
+                    redirectTo:'info',
+                    pathMatch: 'full'
+                },
+                {
+                    path:'info',
+                    component: ProductEditInfoComponent
+                },
+                {
+                    path:'tags',
+                    component: ProductEditTagsComponent
+                }
+                ]
+            }
+        ]},
+        ])

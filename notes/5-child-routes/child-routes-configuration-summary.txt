@@ -1,0 +1,54 @@
+Child Routes: Configuring
+
+    -- Add a children array to the parent route 
+    -- Define the child routes within that array
+    -- Child paths extend the parent route
+
+    {
+        path: 'products/:id/edit',
+        component: ProductEditComponent,
+        resolve: { product: ProductResolver },
+        children: [
+            { path: 'info', component: ProductEditInfoComponent },
+            { path: 'tags', component: ProductEditTagsComponent }
+        ]
+    }
+
+Child Routes: Placing
+    Place the child view by defining a RouterOutlet directive
+    in the parent component's template
+
+    <div class="card-body">
+        <div class="wizard">
+            <a [routerLink]="['info']">Info</a>
+            <a [routerLink]="['tags']">Tags</a>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+
+Child Routes: Activating
+    Using an absolute path  
+        -- Start with a slash
+        -- Define each URL segment
+
+        <a [routerLink]="['/products', product.id, 'edit', 'info']">Info</a>
+
+        this.route.navigate(['products', this.product.id, 'edit', 'info']);
+    
+    Using a relative path
+        -- No starting slash
+        -- Only the child URL segment
+
+        <a [routerLink]="['info']">Info</a>
+
+        this.route.navigate(['info'], { relative: this.route });
+
+Child Routes: Obtaining data
+    Read the data from the route
+        - Snapshot
+            this.product = this.route.snapshot.data['product'];
+        - Observable
+            this.route.data.subscribe(
+                data => this.product = data['product'];
+            )
