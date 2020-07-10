@@ -1,0 +1,23 @@
+Routing Events
+    -- NavgationStart : triggers when navigation begins
+    -- RouteRecognized: triggers when the router has found
+    a valid path in the configuration that matches the parsed
+    URL
+    -- NavigationEnd : triggers when navigation ends successfully
+    -- NavigationCancel: triggers when navigation is cancelled, 
+    such as by a routing guard or redirect
+    -- NavigationError: triggers when navigation failed
+
+We can enable RouteTracing to see all the routing Events
+    (app-routing.module.ts)
+    imports: [
+        RouterModule.forRoot([
+            { path: 'welcome', component: WelcomeComponent},
+            { path: '', redirectTo: 'welcome', pathMatch: 'full'},
+            { path: '**', component: PageNotFoundComponent }
+          ], { enableTracing: true}),
+    ],
+
+Routes: Watching Events
+    Enable tracing to watch routing events in the console
+    Add enableTracing to the route configuration

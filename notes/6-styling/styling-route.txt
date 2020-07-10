@@ -19,3 +19,16 @@ Style the selected route
     .wizard .active:after {
         border-left-color: #007ACC;
     }
+
+Routes: Styling
+    -- Style the active route using the routerLinkActive 
+    directive
+    -- Style the correct element
+        <a [routerLink]="['info']" routerLinkActive="active">
+            Basic
+        </a>
+    -- For an exact path match use routerLinkActiveOptions
+        <li routerLinkActive="active" 
+            [routerLinkActiveOptions] = "{exact: true}">
+        ...
+        </li>

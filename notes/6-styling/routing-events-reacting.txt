@@ -1,0 +1,10 @@
+Reacting to Routing Events
+    -- subscribe to the router's events
+    -- check the event type as needed
+
+    (app.component.ts)
+        this.router.events.subscribe((routerEvent: Event) => {
+            if(routerEvent instanceof NavigationStart) {
+                ... 
+            }
+        });

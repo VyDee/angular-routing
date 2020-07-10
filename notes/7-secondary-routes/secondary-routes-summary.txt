@@ -1,0 +1,39 @@
+Secondary Routes: Named RouterOutlet
+    -- Add another RouterOutlet within a template
+    -- Set its name attribute to a unique name
+
+        <div class="container">
+            <router-outlet></router-outlet>
+
+            <router-outlet name='popup'></router-outlet
+        </div>
+
+Secondary Routes: Configuring
+    -- Add the outlet property
+    -- Set it to the name of the associated RouterOutlet
+
+        RouterModule.forChild([
+            {
+                path: 'messages',
+                component: MessageComponent,
+                outlet: 'popup'
+            }
+        ])
+
+Secondary Routes: Activating
+    -- Activate a Secondary route using an object and setting
+    its outlet property
+        - Key: Outlet name
+        - Value: Link parameters array
+
+        <a [routerLink]="[{ outlets: {popup: ['messages'] } }]"></a>
+        this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+
+Second Routes: Clearing
+    -- Clear a secondary route using an object and setting its outlet
+    property
+
+        <a [routerLink]="[{ outlets: {popup: null } }]">Messages</a>
+        this.router.navigate([{ outlets: { popup: null } }]);
+
+

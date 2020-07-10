@@ -1,0 +1,40 @@
+Second Routes
+    Dashboard
+    Multi-window user interface
+    Notes or comments
+    Messages
+
+-- We can define a router-outlet but each 
+needs to have a unique name
+    (app.component.html)
+        <router-outlet name="popup">
+        </router-outlet>
+
+-- We configure secondary Routes
+    (app.module.ts)
+        RouterModule.forChild([
+            {
+                path: 'messages',
+                component: MessageComponent,
+                outlet: 'popup'
+            },
+        ])
+
+-- Activating secondary routes
+    (app.component.class) >> localhost:4200/products/5/edit(popup:summary/5)
+        this.router.navigate([{
+            outlets: {popup: ['messages']}
+        }]);
+
+        this.router.navigate(['products', product.id, 'edit',
+                        { outlets: {popup: ['summary', product.id]}}]);
+        
+        this.router.navigate([{outlets: {
+            primary: ['/products', product.id, 'edit'],
+            popup: ['summary', product.id]
+        }}]);
+
+        this.router.navigateByUrl('/products/5/edit(popup:summary/5)');
+        
+
+        
