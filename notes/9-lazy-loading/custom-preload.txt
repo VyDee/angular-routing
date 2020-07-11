@@ -1,0 +1,40 @@
+Custom Preloading Strategy
+    1/ Build a preloading strategy service
+    2/ Set the preloading strategy property 
+    to our PreloadingStrategy service. Our 
+    service is called by the router anytime it
+    wants to preload some routes
+
+Example:
+    Building a preload strategy service
+    (selective-strategy.service.ts)
+        import { Injectable } from '@angular/core';
+        import { PreloadingStrategy } from '@angular/router';
+        import { Observable } from '@angular/router';
+
+        @Injectable({
+            providedIn: 'root'
+        })
+        export class SelectiveStrategy implements PreloadingStrategy {
+            preload(route: Route, load: Function): Observable<any> {
+                ...
+            }
+        }
+    
+    Enable a strategy
+    ...
+    import { SelectiveStrategy } from './selective-strategy.service';
+
+    @NgModule ({
+        imports: [
+            RouterModule.forRoot([
+                { path: 'welcome', component: WelcomeComponent },
+                {
+                    path: 'products',
+                    loadChildren: () => 
+                        import('./products/products.module').then(m => m.ProductModule)
+                },...
+            ], { PreloadingStrategy: SelectiveStrategy}),
+        ]
+    })
+    export class AppModule {}

@@ -1,0 +1,27 @@
+Lazy Loading: Preparing
+    Use a feature module
+    Group routes under a single parents
+    Don't import feature module
+
+Lazy Loading Checklist: Configuring
+    Add the loadChildren property
+        { 
+            path: 'products',
+            loadChildren: './products/product.module#ProductModule'
+        }
+    Set it to:
+        - the full path to the module
+        - a hash
+        - and the module's class name
+
+Lazy Loading Checklist: Preloading
+    Preload all modules with PreloadAllModules
+    Or build a custom preloading strategy service
+
+    RouterModule.forRoot([
+        {
+            path: 'products',
+            loadChildren:'./products/products.module#ProductModule'
+        },
+        ...
+    ], { preloadingStrategy:  PreloadAllModules })
