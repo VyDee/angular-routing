@@ -1,0 +1,11 @@
+canActivate Guard
+
+    Checks criteria before activating a route
+    Commonly used to:
+        - Limit route access to specific users
+        - Ensure prerequisites are met
+    Called when the Url changes to the route 
+
+Create angular activate Guard in terminal
+    ng g g user/auth
+    (means angular generate guard ...)

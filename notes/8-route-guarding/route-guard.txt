@@ -1,0 +1,23 @@
+Protecting Routes with Guards
+and Guard Process
+    -- canDeactivate
+    Guard navigation away from a route
+
+        --> canLoad
+        Prevent asynchronous routing
+
+            --> canActivateChild
+            Guard navigation to a child route
+
+                --> canActivate
+                    Guard navigation to a route 
+
+                    --> resolve
+                    Prefetch data before activating a route   
+    
+    
+    
+    
+    
+
+    

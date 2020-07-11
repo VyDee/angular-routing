@@ -1,0 +1,11 @@
+Guarding a route
+    (angular module)
+        ...
+        import { AuthGuard } from './auth-guard.service';
+        ...
+        {
+            path: ':id',
+            component: ProductDetailComponent,
+            resolve: { product: ProductResolver },
+            canActivate: [ AuthGuard ]
+        }
