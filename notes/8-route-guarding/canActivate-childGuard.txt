@@ -1,0 +1,7 @@
+canActivateChild Guard
+
+    -- checks criteria before activating a child route
+    -- commonly used to:
+        - Limit access to child routes
+        - Ensure prerequisites for child routes are met
+    -- called when the url changes to the child route

@@ -1,0 +1,11 @@
+canDeactivate Guard
+    -- Check criteria before leaving a route
+    -- Commonly used to:
+        - Check for unsaved changes
+        - Confirm leaving an incomplete operation
+    -- Called when the Url changes to a different route
+
+For example: the user goes to Product Edit, make changes and
+navigate away, their changes are lost. so we want to use this 
+to check for their unsaved changes and confirm before leaving
+the page
