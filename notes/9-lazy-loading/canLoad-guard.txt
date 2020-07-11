@@ -1,0 +1,8 @@
+canLoad Guard
+    -- checks criteria before loading an asynchronous
+    route 
+        >> The browser won't be downloaded unless the 
+        requirements are met
+    -- commonly used to:
+        - prevent loading a route if a user cannot access
+        it

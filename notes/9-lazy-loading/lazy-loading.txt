@@ -1,0 +1,16 @@
+Prepare for Lazy Loading
+    -- use a feature module
+    -- routes grouped under a single parent
+    -- not imported in another module
+
+Lazy Loading
+    (app-routing.module.ts)
+    RouterModule.forRoot([
+        ...
+        {
+            path: 'products',
+            loadChildren: () =>
+                import('./products/product.module')
+                    .then( m => m.ProductModule )
+        }
+    ])

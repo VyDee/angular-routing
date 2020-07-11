@@ -16,10 +16,13 @@ import { ProductEditGuard } from './product-edit/product-edit.guard';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { 
-        path:'products',
-        canActivate: [AuthGuard], 
-        children: [
+      // The commented section is because we want to
+      // do lazy loading so I have the parent route 
+      // of this in app.module.ts
+      // { 
+        // path:'products',
+        // canActivate: [AuthGuard], 
+        // children: [
           {
             path: '', 
             component: ProductListComponent
@@ -52,7 +55,7 @@ import { ProductEditGuard } from './product-edit/product-edit.guard';
               }
             ]
           }
-      ]},
+      // ]},
     ])
   ],
   declarations: [
