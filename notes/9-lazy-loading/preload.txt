@@ -1,0 +1,27 @@
+Preload strategies (no preloading, preload all, custom)
+    >> No preloading (on demand)
+        -- default
+        -- lazy-loaded feature areas are loaded on
+        demand when the user navigates to a route
+        configured for lazy loading
+    
+    >> Preload all and custom
+        -- preload all of the lazy-loaded feature 
+        modules, or custom, which allows us to define 
+        out own preload strategy for finer control over
+        which modules preload when. 
+
+Example: preload all lazy-loaded
+    (app-routing.module.ts)
+    import { RouterModule, PreloadAllModules } from '@angular/router';
+    ...
+    RouterModule.forRoot([
+        { path: 'welcome', component: WelcomeComponent },
+        {
+            path: 'products',
+            loadChildren: () =>
+                import('./products/products.module').then(m => m.ProductModule)
+        },
+        ...
+    ], { preloadingStrategy: PreloadAllModules })
+

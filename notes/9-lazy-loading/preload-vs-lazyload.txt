@@ -1,0 +1,17 @@
+Preloading Feature Modules
+    ** Lazy Loading
+        > Launch app
+            > Download imported modules     
+                > template appears
+                    > navigate to a lazy loaded Feature
+                        > download lazy loaded module
+                            > template appears
+    
+    ** Preloading (Eager Lazy Loading)
+        > Launch app
+            > Download imported modules     
+                > template appears
+                    > preload modules
+                        > navigate to lazy loaded Feature
+                            > template appears
+                            

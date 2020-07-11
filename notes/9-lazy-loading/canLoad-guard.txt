@@ -6,3 +6,25 @@ canLoad Guard
     -- commonly used to:
         - prevent loading a route if a user cannot access
         it
+
+Notes:
+    -- canLoad guard blocks preloading
+        --> canLoad must be executed before the module is 
+        downloaded. When we specified preloading, the module
+        can be downloaded behind the at any point in time
+            --> for that reason, we should use canActivate
+            instead
+    
+    Example:
+    imports: [
+        RouterModule.forRoot([
+            { path: 'welcome', component: WelcomeComponent},
+            { 
+                path: 'products',
+                canActivate: [AuthGuard],
+                loadChildren: () => 
+                    import('./products/product.module').then(m => m.ProductModule)},
+            { path: '', redirectTo: 'welcome', pathMatch: 'full'},
+            { path: '**', component: PageNotFoundComponent }
+          ], { preloadingStrategy: PreloadAllModules }),
+    ],
